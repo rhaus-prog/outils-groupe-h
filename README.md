@@ -1,2 +1,20 @@
 # outils-groupe-h
-Logiciels et scripts d'installation partages pour le sessions Claude (convertisseur DWG vers DXF)
+
+Logiciels et scripts d'installation partages pour les sessions Claude (chat, Claude Code) du Groupe H.
+
+## Convertisseur DWG vers DXF (LibreDWG 0.13.3)
+
+Les sessions Claude sont privees et effacees a la fin: rien d'installe n'y survit. Ce depot garde la procedure.
+
+Au debut d'une session qui doit lire des plans DWG:
+
+```
+git clone https://github.com/rhaus-prog/outils-groupe-h
+bash outils-groupe-h/dwg/install.sh
+dwg2dxf plan.dwg   # produit plan.dxf
+```
+
+Notes:
+- Compilation depuis la release officielle LibreDWG (GitHub), environ 5 a 10 minutes.
+- Les fichiers DXF produits se lisent ensuite avec Python (bibliotheque ezdxf).
+- Ajouter ici tout autre outil, un dossier par outil, avec son install.sh.
