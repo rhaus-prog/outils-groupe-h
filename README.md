@@ -15,6 +15,7 @@ dwg2dxf plan.dwg   # produit plan.dxf
 ```
 
 Notes:
-- Compilation depuis la release officielle LibreDWG (GitHub), environ 5 a 10 minutes.
+- Binaire precompile (Linux x86_64, LibreDWG 0.13.3): installation en quelques secondes, conversion d'un plan en moins d'une seconde.
+- Si la machine est differente (Mac, ARM), le script compile depuis la release officielle LibreDWG (5 a 10 minutes).
 - Les fichiers DXF produits se lisent ensuite avec Python (bibliotheque ezdxf).
 - Ajouter ici tout autre outil, un dossier par outil, avec son install.sh.
