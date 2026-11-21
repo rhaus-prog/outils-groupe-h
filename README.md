@@ -19,3 +19,13 @@ Notes:
 - Si la machine est differente (Mac, ARM), le script compile depuis la release officielle LibreDWG (5 a 10 minutes).
 - Les fichiers DXF produits se lisent ensuite avec Python (bibliotheque ezdxf).
 - Ajouter ici tout autre outil, un dossier par outil, avec son install.sh.
+
+## Texte des gros PDF (pypdf)
+
+Le connecteur Drive refuse les fichiers de plus de 10 Mo et tronque leur texte. Copier le PDF en local (lecteur Google Drive monte, ou depot dans la conversation), puis:
+
+- bash outils-groupe-h/pdf/install.sh (installe pypdf)
+- python3 -I outils-groupe-h/pdf/extraire_pdf.py fichier.pdf sortie.txt
+- Resultat: un fichier texte avec des reperes "=== PAGE n ===", a lire par tranches.
+- Les images (copies d'ecran) ne sont pas lues.
+- Ne jamais deposer ici les PDF eux-memes: le depot est public.
