@@ -20,6 +20,20 @@ Notes:
 - Les fichiers DXF produits se lisent ensuite avec Python (bibliotheque ezdxf).
 - Ajouter ici tout autre outil, un dossier par outil, avec son install.sh.
 
+### Sur un PC Windows (Claude Code sur le poste)
+
+Le binaire Linux ne tourne pas sous Windows. Le script telecharge la version Windows officielle (win64) depuis la page des versions LibreDWG sur GitHub, verifie son empreinte SHA-256 et l'installe dans `%LOCALAPPDATA%\outils-groupe-h\libredwg` (quelques secondes, aucun binaire stocke dans ce depot).
+
+```
+powershell -ExecutionPolicy Bypass -File outils-groupe-h\dwg\install-windows.ps1
+& "$env:LOCALAPPDATA\outils-groupe-h\libredwg\dwg2dxf.exe" -y plan.dwg -o plan.dxf
+python -I outils-groupe-h\dwg\reparer_dxf.py plan.dxf plan.dxf
+```
+
+- `reparer_dxf.py` corrige un defaut de LibreDWG 0.13.3: les longs textes (MTEXT, par exemple les mentions du cartouche) sont parfois coupes sans code de groupe, et ezdxf refuse alors le fichier ("Invalid group code"). Le dessin n'est pas modifie. A lancer aussi apres la conversion Linux si ezdxf refuse le fichier.
+- Un DXF pese beaucoup plus que le DWG (environ 100 Mo pour un plan de 2 Mo): c'est normal.
+- Teste le 23/11/2026 sur un plan reel du Groupe H (31 calques, 5 457 elements, conversion en 5 secondes).
+
 ## Texte des gros PDF (pypdf)
 
 Le connecteur Drive refuse les fichiers de plus de 10 Mo et tronque leur texte. Copier le PDF en local (lecteur Google Drive monte, ou depot dans la conversation), puis:
